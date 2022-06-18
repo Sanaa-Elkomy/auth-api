@@ -22,24 +22,41 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
+$ git clone https://github.com/Sanaa-Elkomy/auth-api.git
+$ cd auth-api
 $ npm install
+```
+
+### You need create an .env file like below
+
+```bash
+DEV_PORT=3000
+DEV_HOST=http://localhost:3000
+DEV_MONGO_URI=Your_Mongo_Uri_ReplicaSet
+JWT_SECRET=Your_Secret
+JWT_EXPIRES_IN=60d
+```
+
+## Pre-Run Dependencies
+
+```bash
+# You need a MongoDB replica set, and starting a replica set locally for development is an involved process
+$ npm install run-rs -g
+$ run-rs npm module
+
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
+# development watch mode
 $ npm run start:dev
+
+# debug mode
+$ npm run start:debug
 
 # production mode
 $ npm run start:prod
@@ -51,25 +68,25 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+## Documentation
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+>Documentation is automatically generated using [@compodoc/compodoc](https://compodoc.app/),
+Check out current project documentation on [/auth-api](https://sanaa-elkomy.github.io/auth-api/).
 
-## Stay in touch
+>A Swagger documentation is also automatically generated and can be accessed by running the project and heading to `/api`
+and possibly the openapi specification json file that can be imported in rest clients (eg,. `insomnia`, `postman`) by heading to `/api-json`
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Enhancements
 
-## License
+- Integrating with Helmet Package
+- Integrating with CSRF Protection Package
+- Integrating with Rate Limiting Package
+- Adding Logger
+- Adding Unit Tests
+- Adding missing Endpoints (find, update)
 
-Nest is [MIT licensed](LICENSE).
+## Author
 
-Add users update endpoint
+- [@Sanaa-Elkomy](https://github.com/Sanaa-Elkomy)
