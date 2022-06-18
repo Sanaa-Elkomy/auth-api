@@ -52,36 +52,51 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-<h2 id="description">Description</h2>
-<p><a href="https://github.com/nestjs/nest">Nest</a> framework TypeScript starter repository.</p>
 <h2 id="installation">Installation</h2>
-<div><pre class="line-numbers"><code class="language-bash">$ npm install</code></pre></div><h2 id="running-the-app">Running the app</h2>
-<div><pre class="line-numbers"><code class="language-bash"># development
-$ npm run start
-
-# watch mode
+<div><pre class="line-numbers"><code class="language-bash">$ git clone https://github.com/Sanaa-Elkomy/auth-api.git
+$ cd auth-api
+$ npm install</code></pre></div><h3 id="you-need-create-an-env-file-like-below">You need create an .env file like below</h3>
+<div><pre class="line-numbers"><code class="language-bash">DEV_PORT=3000
+DEV_HOST=http://localhost:3000
+DEV_MONGO_URI=Your_Mongo_Uri_ReplicaSet
+JWT_SECRET=Your_Secret
+JWT_EXPIRES_IN=60d</code></pre></div><h2 id="pre-run-dependencies">Pre-Run Dependencies</h2>
+<div><pre class="line-numbers"><code class="language-bash"># You need a MongoDB replica set, and starting a replica set locally for development is an involved process
+$ npm install run-rs -g
+$ run-rs npm module
+</code></pre></div><h2 id="running-the-app">Running the app</h2>
+<div><pre class="line-numbers"><code class="language-bash"># development watch mode
 $ npm run start:dev
+
+# debug mode
+$ npm run start:debug
 
 # production mode
 $ npm run start:prod</code></pre></div><h2 id="test">Test</h2>
 <div><pre class="line-numbers"><code class="language-bash"># unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov</code></pre></div><h2 id="support">Support</h2>
-<p>Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you&#39;d like to join them, please <a href="https://docs.nestjs.com/support">read more here</a>.</p>
-<h2 id="stay-in-touch">Stay in touch</h2>
+</code></pre></div><h2 id="documentation">Documentation</h2>
+<blockquote>
+<p>Documentation is automatically generated using <a href="https://compodoc.app/">@compodoc/compodoc</a>,
+Check out current project documentation on <a href="https://sanaa-elkomy.github.io/auth-api/">/auth-api</a>.</p>
+</blockquote>
+<blockquote>
+<p>A Swagger documentation is also automatically generated and can be accessed by running the project and heading to <code>/api</code>
+and possibly the openapi specification json file that can be imported in rest clients (eg,. <code>insomnia</code>, <code>postman</code>) by heading to <code>/api-json</code></p>
+</blockquote>
+<h2 id="enhancements">Enhancements</h2>
 <ul>
-<li>Author - <a href="https://kamilmysliwiec.com">Kamil Myśliwiec</a></li>
-<li>Website - <a href="https://nestjs.com/">https://nestjs.com</a></li>
-<li>Twitter - <a href="https://twitter.com/nestframework">@nestframework</a></li>
+<li>Integrating with Helmet Package</li>
+<li>Integrating with CSRF Protection Package</li>
+<li>Integrating with Rate Limiting Package</li>
+<li>Adding Logger</li>
+<li>Adding Unit Tests</li>
+<li>Adding missing Endpoints (find, update)</li>
 </ul>
-<h2 id="license">License</h2>
-<p>Nest is <a href="LICENSE">MIT licensed</a>.</p>
-<p>Add users update endpoint</p>
+<h2 id="author">Author</h2>
+<ul>
+<li><a href="https://github.com/Sanaa-Elkomy">@Sanaa-Elkomy</a></li>
+</ul>
 
 
 
