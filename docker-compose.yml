@@ -1,0 +1,68 @@
+version: '3'
+services:
+
+  mongo1:
+    hostname: mongo1
+    image: mongo
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    restart: always
+    command: mongod --replSet rs
+
+  mongo2:
+    hostname: mongo2
+    image: mongo
+    expose:
+      - 27017
+    ports:
+      - 27018:27017
+    restart: always
+    command: mongod --replSet rs
+
+  mongo3:
+    hostname: mongo3
+    image: mongo
+    expose:
+      - 27017
+    ports:
+      - 27019:27017
+    restart: always
+    command: mongod --replSet rs
+
+  mongoinit:
+    image: mongo
+    restart: "on-failure"
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    command: >
+      mongo --host mongo1 --eval
+      '
+      config = {
+      "_id" : "rs",
+      "members" : [
+        {
+          "_id" : 0,
+          "host" : "mongo1"
+        },
+        {
+          "_id" : 1,
+          "host" : "mongo2"
+        },
+        {
+          "_id" : 2,
+          "host" : "mongo3"
+        }
+      ]
+      };
+      rs.initiate(config);
+      '
+  auth-api:
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+
