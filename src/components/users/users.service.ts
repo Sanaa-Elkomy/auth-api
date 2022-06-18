@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
-import * as mongoose from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { Model, FilterQuery } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { FilterQuery, Model } from 'mongoose';
+import { NotFoundError, ValidationError } from 'src/common/errors';
+import { JWTPayload } from 'src/common/types';
+import { SessionService } from '../sessions/session.service';
 import { UsersDto } from './users.dto';
 import { User } from './users.schema';
-import { SessionService } from '../sessions/session.service';
-import { ValidationError, NotFoundError } from 'src/common/errors';
-import { JWTPayload } from 'src/common/types';
 
 @Injectable()
 export class UsersService {
@@ -59,12 +59,22 @@ export class UsersService {
     return this.userModel.findOne(condition);
   }
 
-  async delete(condition: FilterQuery<User>): Promise<any> {
+  async delete(userId: string): Promise<any> {
+    const condition: FilterQuery<User> = { _id: userId };
     const user = await this.userModel.findOne(condition);
 
     if (!user) {
       throw new NotFoundError(`user with id ${condition._id} is not found`);
     }
-    return this.userModel.deleteOne(condition);
+
+    let deleteResult = null;
+    const transaction = await this.connection.startSession();
+    await transaction.withTransaction(async () => {
+      deleteResult = await this.userModel.deleteOne(condition);
+      await this.sessionService.deleteMany(userId, transaction);
+    });
+    await transaction.endSession();
+
+    return deleteResult;
   }
 }

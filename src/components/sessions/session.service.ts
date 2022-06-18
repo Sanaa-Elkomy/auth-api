@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { ObjectId } from 'bson';
 import * as mongoose from 'mongoose';
 
 import { Model, FilterQuery } from 'mongoose';
@@ -28,6 +29,15 @@ export class SessionService {
     return this.sessionModel.updateOne(
       { email, revoked: false },
       { $set: { revoked: true } },
+    );
+  }
+
+  async deleteMany(userId: string, transaction: mongoose.ClientSession) {
+    return this.sessionModel.deleteMany(
+      {
+        userId: new ObjectId(userId),
+      },
+      { session: transaction },
     );
   }
 }

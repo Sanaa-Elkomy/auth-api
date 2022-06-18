@@ -60,7 +60,6 @@ export class UsersController {
   @Delete(':id')
   async delete(@Request() req, @Param('id') userId: string): Promise<any> {
     Authorization.authorize(req.user, [Roles.SUPER_ADMIN, Roles.ADMIN]);
-    const conditions: FilterQuery<User> = { _id: userId };
-    return await this.userService.delete(conditions);
+    return await this.userService.delete(userId);
   }
 }
