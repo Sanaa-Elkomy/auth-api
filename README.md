@@ -43,10 +43,9 @@ JWT_EXPIRES_IN=60d
 ## Pre-Run Dependencies
 
 ```bash
-# You need a MongoDB replica set, and starting a replica set locally for development is an involved process
-$ npm install run-rs -g
-$ run-rs npm module
+# You need a MongoDB replica set, and starting a replica set locally for development is a required step, either provide an existing replica connection string or use a small utility script to run a mongo replica set and use the output connection string instead
 
+$ npm run mongo_replicaset
 ```
 
 ## Running the app
@@ -65,8 +64,8 @@ $ npm run start:prod
 ## Test
 
 ```bash
-# unit tests
-$ npm run test
+# sample unit tests for user controller
+$ npm run test:e2e
 
 ```
 
@@ -84,7 +83,7 @@ and possibly the openapi specification json file that can be imported in rest cl
 - Integrating with CSRF Protection Package
 - Integrating with Rate Limiting Package
 - Adding Logger
-- Adding Unit Tests
+- Adding Full Test Cases
 - Adding missing Endpoints (find, update)
 
 ## Author

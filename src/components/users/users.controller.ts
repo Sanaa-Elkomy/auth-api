@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -13,11 +14,11 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { FilterQuery } from 'mongoose';
-import { CaslAbilityFactory } from 'src/casl/casl-ability.factory';
-import { Action } from 'src/common/constant';
-import { UnauthorizedError, ValidationError } from 'src/common/errors';
-import { ROUTES } from 'src/common/routes';
-import { capitalizeInitials } from 'src/utils';
+import { CaslAbilityFactory } from '../../casl/casl-ability.factory';
+import { Action } from '../../common/constant';
+import { UnauthorizedError, ValidationError } from '../../common/errors';
+import { ROUTES } from '../../common/routes';
+import { capitalizeInitials } from '../../utils';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { UsersDto } from './users.dto';
 import { User } from './users.schema';
@@ -36,7 +37,7 @@ export class UsersController {
   async create(@Body() userDto: UsersDto): Promise<User> {
     const isValid = validateUser(userDto);
     if (!isValid) {
-      throw new ValidationError(null, validateUser.errors);
+      throw new BadRequestException(validateUser.errors);
     }
 
     return await this.userService.create(userDto);

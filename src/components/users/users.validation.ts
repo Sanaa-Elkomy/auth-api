@@ -1,5 +1,5 @@
 import Ajv from 'ajv';
-import { RolesList } from 'src/common/constant';
+import { RolesList } from '../../common/constant';
 import { AjvOptions, regex } from '../../common/validator';
 
 const ajv = new Ajv(AjvOptions);

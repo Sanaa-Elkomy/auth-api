@@ -4,7 +4,7 @@ import { User, UserSchema } from './users.schema';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { SessionModule } from '../sessions/session.module';
-import { CaslModule } from 'src/casl/casl.module';
+import { CaslModule } from '../../casl/casl.module';
 
 @Module({
   imports: [

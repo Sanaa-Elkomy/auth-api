@@ -2,10 +2,10 @@ import { AuthService } from './auth.service';
 import { Controller, Post, Body } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { LoginDto } from './auth.dto';
-import { ROUTES } from 'src/common/routes';
-import { capitalizeInitials } from 'src/utils';
+import { ROUTES } from '../../common/routes';
+import { capitalizeInitials } from '../../utils';
 import { validateLogin } from './auth.validation';
-import { ValidationError } from 'src/common/errors';
+import { ValidationError } from '../../common/errors';
 
 @ApiTags(capitalizeInitials(ROUTES.auth.name))
 @Controller(ROUTES.auth.route)

@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install",
     "docs": "compodoc -p tsconfig.doc.json --output docs",
-    "serve": "compodoc -p tsconfig.doc.json -s"
+    "serve": "compodoc -p tsconfig.doc.json -s",
+    "mongo_replicaset": "run-rs npm module"
   },
   "dependencies": {
     "@casl/ability": "^5.4.4",
@@ -36,6 +37,7 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "lodash": "^4.17.21",
+    "nanoid": "^4.0.0",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

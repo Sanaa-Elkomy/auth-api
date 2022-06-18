@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import development from './config.dev';
+import test from './config.test';
 import staging from './config.staging';
 import production from './config.prod';
 import { IConfig } from './config.interface';
@@ -8,6 +9,7 @@ import { IConfig } from './config.interface';
 const currentEnv = process.env.NODE_ENV || 'development';
 const envs = {
   development,
+  test,
   staging,
   production,
 };

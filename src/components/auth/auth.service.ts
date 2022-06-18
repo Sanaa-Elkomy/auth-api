@@ -6,9 +6,9 @@ import * as bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
 import { User } from '../users/users.schema';
 import { InjectModel } from '@nestjs/mongoose';
-import { JWTPayload } from 'src/common/types';
+import { JWTPayload } from '../../common/types';
 import { SessionService } from '../sessions/session.service';
-import { UnauthenticatedError } from 'src/common/errors';
+import { UnauthenticatedError } from '../../common/errors';
 
 @Injectable()
 export class AuthService {

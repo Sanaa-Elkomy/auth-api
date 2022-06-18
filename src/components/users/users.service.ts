@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import * as mongoose from 'mongoose';
 import { FilterQuery, Model } from 'mongoose';
-import { NotFoundError, ValidationError } from 'src/common/errors';
-import { JWTPayload } from 'src/common/types';
+import { NotFoundError, ValidationError } from '../../common/errors';
+import { JWTPayload } from '../../common/types';
 import { SessionService } from '../sessions/session.service';
 import { UsersDto } from './users.dto';
 import { User } from './users.schema';
@@ -21,7 +21,7 @@ export class UsersService {
     let user = await this.userModel.findOne({ email: userDto.email });
 
     if (user) {
-      throw new ValidationError(
+      throw new BadRequestException(
         `user with email ${userDto.email} already exists`,
       );
     }
