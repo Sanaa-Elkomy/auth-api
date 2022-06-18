@@ -5,3 +5,11 @@ export const Roles = {
 };
 
 export const RolesList = Object.values(Roles);
+
+export enum Action {
+  Manage = 'manage',
+  Create = 'create',
+  Read = 'read',
+  Update = 'update',
+  Delete = 'delete',
+}

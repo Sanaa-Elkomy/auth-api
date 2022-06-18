@@ -6,6 +6,7 @@ import { config } from './config';
 import { AuthModule } from './components/auth/auth.module';
 import { Module } from '@nestjs/common';
 import { SessionModule } from './components/sessions/session.module';
+import { CaslModule } from './casl/casl.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { SessionModule } from './components/sessions/session.module';
     UsersModule,
     AuthModule,
     SessionModule,
+    CaslModule,
   ],
   controllers: [AppController],
   providers: [AppService],
