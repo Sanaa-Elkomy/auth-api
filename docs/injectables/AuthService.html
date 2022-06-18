@@ -344,9 +344,9 @@ import * as bcrypt from &#x27;bcrypt&#x27;;
 import { Model } from &#x27;mongoose&#x27;;
 import { User } from &#x27;../users/users.schema&#x27;;
 import { InjectModel } from &#x27;@nestjs/mongoose&#x27;;
-import { JWTPayload } from &#x27;src/common/types&#x27;;
+import { JWTPayload } from &#x27;../../common/types&#x27;;
 import { SessionService } from &#x27;../sessions/session.service&#x27;;
-import { UnauthenticatedError } from &#x27;src/common/errors&#x27;;
+import { UnauthenticatedError } from &#x27;../../common/errors&#x27;;
 
 @Injectable()
 export class AuthService {

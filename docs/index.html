@@ -61,10 +61,9 @@ DEV_HOST=http://localhost:3000
 DEV_MONGO_URI=Your_Mongo_Uri_ReplicaSet
 JWT_SECRET=Your_Secret
 JWT_EXPIRES_IN=60d</code></pre></div><h2 id="pre-run-dependencies">Pre-Run Dependencies</h2>
-<div><pre class="line-numbers"><code class="language-bash"># You need a MongoDB replica set, and starting a replica set locally for development is an involved process
-$ npm install run-rs -g
-$ run-rs npm module
-</code></pre></div><h2 id="running-the-app">Running the app</h2>
+<div><pre class="line-numbers"><code class="language-bash"># You need a MongoDB replica set, and starting a replica set locally for development is a required step, either provide an existing replica connection string or use a small utility script to run a mongo replica set and use the output connection string instead
+
+$ npm run mongo_replicaset</code></pre></div><h2 id="running-the-app">Running the app</h2>
 <div><pre class="line-numbers"><code class="language-bash"># development watch mode
 $ npm run start:dev
 
@@ -73,8 +72,8 @@ $ npm run start:debug
 
 # production mode
 $ npm run start:prod</code></pre></div><h2 id="test">Test</h2>
-<div><pre class="line-numbers"><code class="language-bash"># unit tests
-$ npm run test
+<div><pre class="line-numbers"><code class="language-bash"># sample unit tests for user controller
+$ npm run test:e2e
 </code></pre></div><h2 id="documentation">Documentation</h2>
 <blockquote>
 <p>Documentation is automatically generated using <a href="https://compodoc.app/">@compodoc/compodoc</a>,
@@ -90,7 +89,7 @@ and possibly the openapi specification json file that can be imported in rest cl
 <li>Integrating with CSRF Protection Package</li>
 <li>Integrating with Rate Limiting Package</li>
 <li>Adding Logger</li>
-<li>Adding Unit Tests</li>
+<li>Adding Full Test Cases</li>
 <li>Adding missing Endpoints (find, update)</li>
 </ul>
 <h2 id="author">Author</h2>

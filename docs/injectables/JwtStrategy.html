@@ -228,9 +228,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
 import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { config } from &#x27;src/config&#x27;;
+import { config } from &#x27;../../config&#x27;;
 import { SessionService } from &#x27;../sessions/session.service&#x27;;
-import { UnauthenticatedError } from &#x27;src/common/errors&#x27;;
+import { UnauthenticatedError } from &#x27;../../common/errors&#x27;;
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

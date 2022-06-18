@@ -183,9 +183,9 @@ import {
   InferSubjects,
 } from &#x27;@casl/ability&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Action, Roles } from &#x27;src/common/constant&#x27;;
-import { User } from &#x27;src/components/users/users.schema&#x27;;
-import { Session } from &#x27;src/components/sessions/session.schema&#x27;;
+import { Action, Roles } from &#x27;../common/constant&#x27;;
+import { User } from &#x27;../components/users/users.schema&#x27;;
+import { Session } from &#x27;../components/sessions/session.schema&#x27;;
 
 type Subjects &#x3D; InferSubjects&lt;typeof Session | typeof User&gt; | &#x27;all&#x27;;
 

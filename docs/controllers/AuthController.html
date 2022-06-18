@@ -184,10 +184,10 @@
 import { Controller, Post, Body } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { LoginDto } from &#x27;./auth.dto&#x27;;
-import { ROUTES } from &#x27;src/common/routes&#x27;;
-import { capitalizeInitials } from &#x27;src/utils&#x27;;
+import { ROUTES } from &#x27;../../common/routes&#x27;;
+import { capitalizeInitials } from &#x27;../../utils&#x27;;
 import { validateLogin } from &#x27;./auth.validation&#x27;;
-import { ValidationError } from &#x27;src/common/errors&#x27;;
+import { ValidationError } from &#x27;../../common/errors&#x27;;
 
 @ApiTags(capitalizeInitials(ROUTES.auth.name))
 @Controller(ROUTES.auth.route)

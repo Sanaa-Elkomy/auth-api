@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/components/users/users.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/components/users/users.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -217,8 +217,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/components/users/users.controller.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/components/users/users.controller.ts:75</a></div>
                 </td>
             </tr>
 
@@ -306,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/components/users/users.controller.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/components/users/users.controller.ts:61</a></div>
                 </td>
             </tr>
 
@@ -395,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/components/users/users.controller.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/components/users/users.controller.ts:49</a></div>
                 </td>
             </tr>
 
@@ -449,6 +449,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -463,11 +464,11 @@
 } from &#x27;@nestjs/common&#x27;;
 import { ApiBearerAuth, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { FilterQuery } from &#x27;mongoose&#x27;;
-import { CaslAbilityFactory } from &#x27;src/casl/casl-ability.factory&#x27;;
-import { Action } from &#x27;src/common/constant&#x27;;
-import { UnauthorizedError, ValidationError } from &#x27;src/common/errors&#x27;;
-import { ROUTES } from &#x27;src/common/routes&#x27;;
-import { capitalizeInitials } from &#x27;src/utils&#x27;;
+import { CaslAbilityFactory } from &#x27;../../casl/casl-ability.factory&#x27;;
+import { Action } from &#x27;../../common/constant&#x27;;
+import { UnauthorizedError, ValidationError } from &#x27;../../common/errors&#x27;;
+import { ROUTES } from &#x27;../../common/routes&#x27;;
+import { capitalizeInitials } from &#x27;../../utils&#x27;;
 import { JwtAuthGuard } from &#x27;../auth/jwt-auth.guard&#x27;;
 import { UsersDto } from &#x27;./users.dto&#x27;;
 import { User } from &#x27;./users.schema&#x27;;
@@ -486,7 +487,7 @@ export class UsersController {
   async create(@Body() userDto: UsersDto): Promise&lt;User&gt; {
     const isValid &#x3D; validateUser(userDto);
     if (!isValid) {
-      throw new ValidationError(null, validateUser.errors);
+      throw new BadRequestException(validateUser.errors);
     }
 
     return await this.userService.create(userDto);
