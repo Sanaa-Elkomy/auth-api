@@ -4,7 +4,7 @@ export const Roles = {
   USER: 'user',
 };
 
-export const RolesList = Object.values(Roles);
+export const RolesList = [Roles.ADMIN, Roles.USER];
 
 export enum Action {
   Manage = 'manage',
